@@ -3,7 +3,7 @@
 
   <!-- Navigation Bar -->
   <div class="navigation">
-      <a href="#a">a</a>
+      <a href="#Dashboard">Dashboard</a>
       <a href="#b">b</a>
       <a href="#c">c</a>
   </div>
@@ -11,8 +11,11 @@
   <!-- Maintext -->
   <div id="mainText">
     <h1>
-      Dies ist meine wundervolle Startseite
+      Dieses Dashboard stellt den aktuellen Bitcoin Kurs da!
     </h1>
-    <p>Auf Ihr findest du alle Möglichen Informationen die du brauchst.</p>
+      <div *ngFor="let price of prices">
+       <app-dashboard [price]="price"></app-dashboard>
+      </div>
+      <button (click)="reloadButton()">Neu laden!</button>
   </div>
 </div>
