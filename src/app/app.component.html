@@ -13,9 +13,11 @@
     <h1>
       Dieses Dashboard stellt den aktuellen Bitcoin Kurs da!
     </h1>
-      <div *ngFor="let price of prices">
-       <app-dashboard [price]="price"></app-dashboard>
+      <!-- Modulares erstellen von "Dashboards" -->
+      <div *ngFor="let data of bitcoinData">
+       <app-dashboard [bitcoinData]="data"></app-dashboard>
       </div>
+      <!-- Reloadbutton -->
       <button (click)="reloadButton()">Neu laden!</button>
   </div>
 </div>
