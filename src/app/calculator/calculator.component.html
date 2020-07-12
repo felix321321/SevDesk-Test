@@ -1,0 +1,22 @@
+<p>Wählen Sie eine Währung aus
+<mat-form-field appearance="fill">
+    <mat-label>Währungen</mat-label>
+    <mat-select [(value)]="selected">
+      <mat-option value="0">EUR</mat-option>
+      <mat-option value="1">USD</mat-option>
+      <mat-option value="2">AUD</mat-option>
+      <mat-option value="3">NZD</mat-option>
+      <mat-option value="4">GBP</mat-option>
+    </mat-select>
+  </mat-form-field>
+</p>
+<form [formGroup] ="amountForm"> 
+    <p>Geben Sie die gewünscht Betragsmenge ein 
+        <input id="amount" type="text" formControlName="amount">
+        <button (click)="umrechnen()"> umrechnen!
+        </button>    
+    </p>
+</form>
+<p>Sie können nach aktuellem Kurs {{result}} Bitcoin kaufen!</p>
+
+

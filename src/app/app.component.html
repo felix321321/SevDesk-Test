@@ -3,9 +3,9 @@
 
   <!-- Navigation Bar -->
   <div class="navigation">
-      <a href="#Dashboard">Dashboard</a>
-      <a href="#b">b</a>
-      <a href="#c">c</a>
+      <a href="#Dashboard" (click)="changeView(1)">Dashboard</a>
+      <a href="#Details" (click)="changeView(2)">Details</a>
+      <a href="#Umrechner" (click)="changeView(3)">Bitcoin Umrechner</a>
   </div>
 
   <!-- Maintext -->
@@ -13,11 +13,34 @@
     <h1>
       Dieses Dashboard stellt den aktuellen Bitcoin Kurs da!
     </h1>
+    <div [ngSwitch]="currentView">
+      <ng-container *ngSwitchCase="1">
       <!-- Modulares erstellen von "Dashboards" -->
       <div *ngFor="let data of bitcoinData">
-       <app-dashboard [bitcoinData]="data"></app-dashboard>
+        <app-dashboard [bitcoinData]="data"></app-dashboard>
       </div>
-      <!-- Reloadbutton -->
-      <button (click)="reloadButton()">Neu laden!</button>
+    </ng-container>
+    <ng-container *ngSwitchCase="2">
+      <!-- Erstellen von "Details" -->
+      <div *ngFor="let details of bitcoinDetails">
+        <app-details 
+        [marketCap]="details.market_cap" 
+        [totalBtc]="details.total_volume" 
+        [dailyTransactions]="details.circulating_supply" 
+        [dailySent]="details.market_cap_change_24h">
+        </app-details>
+      </div>
+    </ng-container>
+    <ng-container *ngSwitchCase="3">
+      <!-- Erstellen des "Umrechners" -->
+      <div>
+        <app-calculator></app-calculator>
+      </div>
+    </ng-container>
+      <!-- Default Case -->
+    <ng-container *ngSwitchDefault></ng-container>
+    </div>
+    <!-- Reloadbutton -->
+    <button (click)="reloadButton()">Neu laden!</button>
   </div>
 </div>

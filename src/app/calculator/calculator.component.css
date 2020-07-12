@@ -1,0 +1,8 @@
+.mat-form-field {
+    background-color: white;
+}   
+
+ /* sollte eigentlich den unteren Balken schwarz färben */
+.mat-form-field-wrapper {
+    background-color: black;
+}
